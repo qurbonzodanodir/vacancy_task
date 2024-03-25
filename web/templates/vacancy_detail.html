@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Vacancy Details</title>
+</head>
+<body>
+   <div class="container">
+       <div class="vacancy-details">
+           <h2>{{ vacancy.title }}</h2>
+           
+           <p><strong>Location:</strong> {{ vacancy.location }}, <strong>Company:</strong> {{ vacancy.company }},<strong>Category:</strong> {{ vacancy.category }}</p>
+           <p><strong>Description:</strong> {{ vacancy.description }}</p>
+           <p><strong>Requirements:</strong> {{ vacancy.request }}</p>
+           <p><strong>Posted on:</strong> {{ vacancy.created_at }}</p>
+           <a class="ap" href="{% url 'create_app' vacancy.id %}">Apply</a>
+       </div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Vacancy List</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="vacancy-list">
+            {% for vacancy in vacancy_list %}
+            <div class="vacancy-item">
+                <h2>{{ vacancy.title }}</h2>
+                <p><strong>Address:</strong> {{ vacancy.location }}, <strong>Company:</strong> {{ vacancy.company }}, <strong>Category:</strong> {{ vacancy.category }}, <br> <strong>Create at:</strong> {{ vacancy.create_at }}, </p>
+                <a href="{% url 'more_info' vacancy.id %}">More info...</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
